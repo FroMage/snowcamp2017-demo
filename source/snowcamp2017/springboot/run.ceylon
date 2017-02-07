@@ -24,8 +24,10 @@ shared class HelloController() {
     
     requestMapping{"/"}
     shared String index() {
+        print("I come to serve.");
         value uri = parseUri("https://modules.ceylon-lang.org/api/5/complete-versions?module=ceylon.language");
         value versions = getVersionList(httpGet(uri).execute().contents);
+        print("By your command.");
         return versions;
     }
     

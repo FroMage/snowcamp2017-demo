@@ -29,12 +29,9 @@ shared class HelloWorldEndpoint() {
   produces({"text/plain"})
   default shared Response doGet(){
     value uri = parseUri("https://modules.ceylon-lang.org/api/5/complete-versions?module=ceylon.language");
+    print("Awaiting orders");
     value versions = getVersionList(httpGet(uri).execute().contents);
+    print("At once, sire.");
     return Response.ok(versions).build();
   }
-}
-
-"Run the module `snowcamp2017.wildfly`."
-shared void run() {
-    
 }
